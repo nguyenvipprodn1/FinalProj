@@ -12,6 +12,8 @@ import { Provider } from 'react-redux';
 import { store } from './app/store/configureStore';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { ThemeProvider } from "@mui/system";
+import theme from "./features/home/styles/theme/index";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,9 +21,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

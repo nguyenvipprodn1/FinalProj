@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../store/configureStore";
 
 export default function SignedInMenu() {
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector(state => state.account);
+  const { user } = useAppSelector((state) => state.account);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -22,9 +22,12 @@ export default function SignedInMenu() {
   return (
     <>
       <Button
-        color='inherit'
+        // color='inherit'
         onClick={handleClick}
-        sx={{ typography: 'h6' }}
+        sx={{
+          typography: "h6",
+          color: "#d1adcc",
+        }}
       >
         {user?.email}
       </Button>
@@ -35,11 +38,17 @@ export default function SignedInMenu() {
         TransitionComponent={Fade}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem component={Link} to='/orders'>My orders</MenuItem>
-        <MenuItem onClick={() => {
-          dispatch(signOut());
-          dispatch(clearBasket());
-        }}>Logout</MenuItem>
+        <MenuItem component={Link} to="/orders">
+          My orders
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            dispatch(signOut());
+            dispatch(clearBasket());
+          }}
+        >
+          Logout
+        </MenuItem>
       </Menu>
     </>
   );

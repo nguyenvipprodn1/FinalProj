@@ -1,5 +1,6 @@
 using API.Data;
 using API.DTOs;
+using API.DTOs.Chats;
 using API.Entities;
 using API.Extensions;
 using API.Services;
@@ -96,6 +97,30 @@ namespace API.Controllers
                 .Where(x => x.UserName == User.Identity.Name)
                 .Select(user => user.Address)
                 .FirstOrDefaultAsync();
+        }
+        
+        
+        [Authorize]
+        [HttpGet("search-users/{term}")]
+        public async Task<ActionResult<IEnumerable<UserInMessage>>> Search(string term)
+        {
+            var users = _userManager.Users.Where(_ => _.UserName.ToLower().Trim().Contains(term.ToLower().Trim())).ToList();
+
+            var userInMessageList = new List<UserInMessage>();
+            foreach (var userInfo in users)
+            {
+                var userInMessage = new UserInMessage()
+                {
+                    Id = userInfo.Id,
+                    Avatar = string.Empty,
+                    FirstName = userInfo.UserName.Split(" ")[1],
+                    LastName = userInfo.UserName.Split(" ")[0],
+                    Email = userInfo.Email,
+                };
+                userInMessageList.Add(userInMessage);
+            }
+
+            return Ok(userInMessageList);
         }
 
         private async Task<Basket> RetrieveBasket(string buyerId)

@@ -8,30 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/API/Controllers/ChatsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/AddUserToGroupRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/CreateChatRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/CreateChatResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/GetChatByUserIdResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/LeaveGroupRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/MessageSocket.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/AddUserToGroupModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/ChatModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/DeleteChatModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/LeaveCurrentChatModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/TypingModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/UploadImageRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/UserConnection.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Entities/Chat.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Entities/ChatMessage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Entities/ChatUser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Services/ChatService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/API/API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Data/StoreContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/StoreContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api/agent.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +78,7 @@
       <updated>1693042635079</updated>
       <workItem from="1693042636410" duration="214000" />
       <workItem from="1695041713293" duration="3456000" />
-      <workItem from="1695108347157" duration="9124000" />
+      <workItem from="1695108347157" duration="9843000" />
     </task>
     <servers />
   </component>

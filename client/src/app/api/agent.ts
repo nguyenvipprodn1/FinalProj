@@ -101,7 +101,8 @@ const Account = {
     login: (values: any) => requests.post('account/login', values),
     register: (values: any) => requests.post('account/register', values),
     currentUser: () => requests.get('account/currentUser'),
-    fetchAddress: () => requests.get('account/savedAddress')
+    fetchAddress: () => requests.get('account/savedAddress'),
+    searchUsers: (term: any)=> requests.get(`account/search-users${term}`)
 }
 
 const Orders = {
@@ -120,6 +121,16 @@ const Admin = {
     deleteProduct: (id: number) => requests.delete(`products/${id}`)
 }
 
+const Chat = {
+    fetchChats: () => requests.get('chats'),
+    uploadImageChats: (data: any) => requests.post('chats/upload-image', data),
+    paginateMessages: (id: number, page: number) => requests.get(`chats/messages/${id}/${page}`),
+    createChat: (partnerId: number) => requests.post(`chats/create`, {partnerId}),
+    addFriendToGroupChat: (userId: number, chatId: number) => requests.post(`chats/add-user-to-group`,{ userId, chatId }),
+    leaveCurrentChat: (chatId: number) => requests.post(`chats/leave-current-chat}`,{ chatId }),
+    deleteCurrentChat: (chatId: number) => requests.delete(`/chats/${chatId}`),
+}
+
 const agent = {
     Catalog,
     TestErrors,
@@ -127,7 +138,8 @@ const agent = {
     Account,
     Orders,
     Payments,
-    Admin
+    Admin,
+    Chat
 }
 
 export default agent;

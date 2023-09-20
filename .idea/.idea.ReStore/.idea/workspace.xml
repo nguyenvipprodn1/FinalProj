@@ -8,17 +8,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/API/Controllers/ChatsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/AddUserToGroupRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/CreateChatRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/CreateChatResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/GetChatByUserIdResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/LeaveGroupRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/MessageSocket.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/AddUserToGroupModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/ChatModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/DeleteChatModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/LeaveCurrentChatModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/TypingModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/UploadImageRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/DTOs/Chats/UserConnection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Entities/Chat.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Entities/ChatMessage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Entities/ChatUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Services/ChatService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/API/API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/Data/StoreContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/StoreContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout/SignedInMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout/SignedInMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/catalog/Catalog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/catalog/Catalog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/catalog/ProductCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/catalog/ProductCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/catalog/ProductSearch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/catalog/ProductSearch.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/home/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +46,7 @@
     <setting file="mock:///Users/tringuyen/Desktop/NguyenFinalPrj/FinalProj/API/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/tringuyen/Desktop/NguyenFinalPrj/FinalProj/API/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2UW5jt95GNIhTqCwosz4gZmRZV3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -85,13 +99,14 @@
       <updated>1693042635079</updated>
       <workItem from="1693042636410" duration="214000" />
       <workItem from="1695041713293" duration="3456000" />
-      <workItem from="1695108347157" duration="1994000" />
+      <workItem from="1695108347157" duration="9124000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>

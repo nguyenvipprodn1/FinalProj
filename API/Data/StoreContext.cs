@@ -1,6 +1,5 @@
 using API.Entities;
 using API.Entities.OrderAggregate;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +14,9 @@ namespace API.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Chat> Chats  { get; set; }
+        public DbSet<ChatMessage> ChatMessages { get; set; }  
+        public DbSet<ChatUser> ChatUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,7 +35,5 @@ namespace API.Data
                     new Role {Id = 3, Name = "Staff", NormalizedName = "STAFF" }
                 );
         }
-
-        
     }
 }

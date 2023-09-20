@@ -1,9 +1,11 @@
 using System.Text;
 using API.Data;
+using API.DTOs.Chats;
 using API.Entities;
 using API.Middleware;
 using API.RequestHelpers;
 using API.Services;
+using API.SignalR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -93,9 +95,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 builder.Services.AddAuthorization();
+builder.Services.AddSignalR();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<PaymentService>();
 builder.Services.AddScoped<ImageService>();
+builder.Services.AddScoped<ChatService>();
+
+builder.Services.AddSingleton<IDictionary<int, UserConnection>>(opts => new Dictionary<int, UserConnection>());
+builder.Services.AddSingleton<IDictionary<string, int>>(opts => new Dictionary<string, int>());
 
 var app = builder.Build();
 
@@ -122,7 +129,9 @@ app.UseCors(opt =>
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapHub<ChatHub>("/chat"); // Map your SignalR hub
+app.MapControllers(); // Map your controllers
+
 app.MapFallbackToController("Index", "Fallback");
 
 var scope = app.Services.CreateScope();

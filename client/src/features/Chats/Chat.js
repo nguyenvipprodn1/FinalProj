@@ -16,7 +16,7 @@ import {
   addUserToGroup,
   leaveCurrentChat,
   deleteCurrentChat,
-} from "../../store/actions/chatActions";
+} from "./actions/chatActions";
 import agent from "../../app/api/agent";
 
 const Chat = () => {
@@ -27,7 +27,7 @@ const Chat = () => {
     (async () => await getChats())();
 
     const connection = new HubConnectionBuilder()
-      .withUrl(`${process.env.REACT_APP_BASE_API}/chat`)
+      .withUrl(`${process.env.REACT_APP_SOCKET_URL}/chat`)
       .build();
 
     connection

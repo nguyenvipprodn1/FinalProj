@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api/agent.ts" afterDir="false" />
-    </list>
+    <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +74,7 @@
       <updated>1693042635079</updated>
       <workItem from="1693042636410" duration="214000" />
       <workItem from="1695041713293" duration="3456000" />
-      <workItem from="1695108347157" duration="9843000" />
+      <workItem from="1695108347157" duration="10471000" />
     </task>
     <servers />
   </component>

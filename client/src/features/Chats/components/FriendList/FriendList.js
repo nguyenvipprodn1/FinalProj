@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Friend from "../Friend/Friend";
-import { setCurrentChat } from "../../../../store/actions/chatActions";
+import { setCurrentChat } from "../../actions/chatActions";
 import Modal from "../Modal/Modal";
 import agent from "../../../../app/api/agent";
 import "./FriendList.scss";

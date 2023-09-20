@@ -3,7 +3,7 @@ import { useSelector, useDispatch, connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
-import { incrementScroll } from "../../../../store/actions/chatActions";
+import { incrementScroll } from "../../actions/chatActions";
 import "./MessageInput.scss";
 import agent from "../../../../app/api/agent";
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Message from "../Message/Message";
-import { paginateMessages } from "../../../../store/actions/chatActions";
+import { paginateMessages } from "../../actions/chatActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MessageBox.scss";
 import agent from "../../../../app/api/agent";

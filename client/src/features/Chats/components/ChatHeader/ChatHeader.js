@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { userStatus } from "../../../../Utility/chatHelper";
+import { userStatus } from "../../utility/chatHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from "react-redux";
 import Modal from "../Modal/Modal";

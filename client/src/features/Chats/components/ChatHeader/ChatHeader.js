@@ -15,36 +15,31 @@ const ChatHeader = ({ chat }) => {
   const socket = useAppSelector((state) => state.chat.socket);
 
   const searchFriends = async (e) => {
-    const { data, status } = await agent.Chat.searchUsers(e.target.value);
-
-    if (status === 200) {
-      setSuggestions(data);
-    }
+   if (e.target.value.length){
+     await agent.Chat.searchUsers(e.target.value).then((res)=>{
+       setSuggestions(res);
+     });
+   }
   };
 
   const addNewFriend = async (id) => {
-    const { data, status } = await agent.Chat.addFriendToGroupChat(id, chat.id);
-
-    if (status === 200) {
-      socket.invoke("AddUserToGroup", data);
-      setShowAddFriendModal(false);
-    }
+   await agent.Chat.addFriendToGroupChat(id, chat.id)
+       .then((res)=>{
+         socket.invoke("AddUserToGroup", res);
+         setShowAddFriendModal(false);
+       })
   };
 
   const leaveChat = async () => {
-    const { data, status } = await agent.ChatleaveCurrentChat(chat.id);
-
-    if (status === 200) {
-      socket.invoke("LeaveCurrentChat", data);
-    }
+    await agent.Chat.leaveCurrentChat(chat.id).then((res)=>{
+        socket.invoke("LeaveCurrentChat", res);
+    });
   };
 
   const deleteChat = async () => {
-    const { data, status } = await agent.ChatdeleteCurrentChat(chat.id);
-
-    if (status === 200) {
-      socket.invoke("DeleteChat", data);
-    }
+    await agent.Chat.deleteCurrentChat(chat.id).then((res)=>{
+        socket.invoke("DeleteChat", res);
+    })
   };
 
   return (

@@ -79,8 +79,6 @@ export const chatSlice = createSlice({
             }
         },
         setSocket: (state, action) => {
-            console.log('fuck')
-            console.log(action.payload)
             state.socket = action.payload;
         },
         receivedMessage: (state, action) => {
@@ -108,23 +106,18 @@ export const chatSlice = createSlice({
                         };
                     }
 
-                    return {
-                        ...chat,
-                        messages: [...chat.messages, message],
-                    };
+                    state.messages= [...chat.messages, message];
                 }
 
                 return chat;
             });
 
-            return {
-                ...state,
-                chats: chatsCopy,
-                currentChat: currentChatCopy,
-                newMessage,
-                scrollBottom,
-                senderTyping: { typing: false },
-            };
+
+            state.chats = chatsCopy;
+            state.currentChat = currentChatCopy;
+            state.newMessage =  newMessage;
+            state.currentChat = scrollBottom;
+            state.senderTyping =  { typing: false };
         },
         senderTyping: (state, action) => {
             const { typing } = action.payload;
@@ -165,14 +158,10 @@ export const chatSlice = createSlice({
                     return chat;
                 });
 
-                return {
-                    ...state,
-                    chats: chatsCopy,
-                    currentChat: currentChatCopy,
-                };
-            }
 
-            return state; // Return the state unchanged if messages is empty
+                state.chats = chatsCopy;
+                state.currentChat = currentChatCopy;
+            }
         },
         incrementScroll: (state) => {
             state.scrollBottom += 1;

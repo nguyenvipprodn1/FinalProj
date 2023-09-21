@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MessageBox.scss";
 import agent from "../../../../app/api/agent";
 import { useAppSelector } from "../../../../app/store/configureStore";
+import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 
 const MessageBox = ({ chat }) => {
   const dispatch = useDispatch();
@@ -28,20 +29,18 @@ const MessageBox = ({ chat }) => {
       const pagination = chat.Pagination;
       const page = typeof pagination === "undefined" ? 1 : pagination.page;
 
-      const { data, status } = await agent.Chat.paginateMessages(
+      await agent.Chat.paginateMessages(
         chat.id,
         parseInt(page) + 1
-      );
-
-      if (status === 200) {
-        const { messages, pagination } = data;
+      ).then((res)=>{
+        const { messages, pagination } = res;
         if (typeof messages !== "undefined" && messages.length > 0) {
           dispatch(paginateMessages(chat.id, messages, pagination));
           setScrollUp(scrollUp + 1);
         }
 
         setLoading(false);
-      }
+      })
     }
   };
 
@@ -74,10 +73,10 @@ const MessageBox = ({ chat }) => {
     <div onScroll={handleInfiniteScroll} id="msg-box" ref={msgBox}>
       {loading ? (
         <p className="loader m-0">
-          <FontAwesomeIcon icon="spinner" className="fa-spin" />
+          <FontAwesomeIcon icon={faSpinner} className="fa-spin" />
         </p>
       ) : null}
-      {chat.messages.map((message, index) => {
+      {chat.messages != null && chat.messages.map((message, index) => {
         return (
           <Message
             user={user}

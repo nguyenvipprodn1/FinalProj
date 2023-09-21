@@ -75,12 +75,9 @@ const MessageInput = ({ chat }) => {
     formData.append("id", chat.id);
     formData.append("image", image);
 
-    const { data, status } =
-      await agent.Chat.addFriendToGroupChat(formData);
-
-    if (status === 200) {
-      sendMessage(data);
-    }
+    await agent.Chat.uploadImageChats(formData).then((res)=>{
+      sendMessage(res);
+    });
   };
 
   const selectEmoji = (emoji) => {

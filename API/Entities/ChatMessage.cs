@@ -6,7 +6,7 @@ public class ChatMessage
 {
     public ChatMessage()
     {
-        CreateAt = DateTime.Now;
+        CreateAt = DateTime.UtcNow;
     }
     public int Id { get; set; }
     [Required]

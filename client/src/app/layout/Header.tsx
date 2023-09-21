@@ -17,6 +17,7 @@ import SignedInMenu from "./SignedInMenu";
 const midLinks = [
   { title: "Home", path: "/" },
   { title: "Catalog", path: "/catalog" },
+  { title: "Chat", path: "/chat" },
 ];
 
 const rightLinks = [

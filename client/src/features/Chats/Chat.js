@@ -86,11 +86,9 @@ const Chat = () => {
   }, [dispatch, user]);
 
   const getChats = async () => {
-    const { data, status } = await agent.Chat.fetchChats();
-
-    if (status === 200) {
-      dispatch(fetchChats(data));
-    }
+   await agent.Chat.fetchChats().then((res)=>{
+       dispatch(fetchChats(res));
+   });
   };
 
   return (

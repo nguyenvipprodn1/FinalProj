@@ -48,12 +48,13 @@ public class ChatService
                     chatUsersContainChatWithUsers.FirstOrDefault(_ => _.ChatId == chat.Id && _.UserId == user.Id);
                 if (chatUserInUser != null)
                 {
+                    var userName = user.UserName.Split(" ");
                     var userResponse = new UserResponse()
                     {
                         Id = user.Id,
                         Avatar = string.Empty,
-                        FirstName = user.UserName.Split(" ")[1],
-                        LastName = user.UserName.Split(" ")[0],
+                        FirstName = userName.Length == 2 ? userName[1] : "",
+                        LastName = userName[0],
                         Email = user.Email,
                         ChatUser = new ChatUserResponse()
                         {
@@ -72,6 +73,7 @@ public class ChatService
                 var userWroteMessage = users.FirstOrDefault(_ => _.Id == m.FromUserId);
                 if (userWroteMessage != null)
                 {
+                    var userName = userWroteMessage.UserName.Split(" ");
                     var messageResponse = new MessageResponse()
                     {
                         Id = m.Id,
@@ -85,8 +87,8 @@ public class ChatService
                         {
                             Id = userWroteMessage.Id,
                             Avatar = string.Empty,
-                            FirstName = userWroteMessage.UserName.Split(" ")[1],
-                            LastName = userWroteMessage.UserName.Split(" ")[0],
+                            FirstName = userName.Length == 2 ? userName[1] : "",
+                            LastName = userName[0],
                             Email = userWroteMessage.Email,
                         }
                     };
@@ -152,10 +154,13 @@ public class ChatService
             }
         });
 
+        _context.SaveChanges();
+        
         var userInfos = _context.Users.Where(_ => _.Id == userId || _.Id == partnerId).ToList();
         var userInfo = userInfos.FirstOrDefault(_ => _.Id == userId);
         var partnerInfo = userInfos.FirstOrDefault(_ => _.Id == partnerId);
 
+        var userName = partnerInfo.UserName.Split(" ");
         var forCreator = new CreateChatResponseModel()
         {
             Id = chat.Id,
@@ -166,13 +171,14 @@ public class ChatService
                 {
                     Id = partnerInfo.Id,
                     Avatar = string.Empty,
-                    FirstName = partnerInfo.UserName.Split(" ")[1],
-                    LastName = partnerInfo.UserName.Split(" ")[0],
+                    FirstName = userName.Length == 2 ? userName[1] : "",
+                    LastName = userName[0],
                     Email = partnerInfo.Email,
                 }
             },
         };
 
+        var userNameOfUser = userInfo.UserName.Split(" ");
         var forReceiver = new CreateChatResponseModel()
         {
             Id = chat.Id,
@@ -183,8 +189,8 @@ public class ChatService
                 {
                     Id = userInfo.Id,
                     Avatar = string.Empty,
-                    FirstName = userInfo.UserName.Split(" ")[1],
-                    LastName = userInfo.UserName.Split(" ")[0],
+                    FirstName = userNameOfUser.Length == 2 ? userNameOfUser[1] : "",
+                    LastName = userNameOfUser[0],
                     Email = userInfo.Email
                 }
             },
@@ -216,6 +222,7 @@ public class ChatService
         foreach (var m in messages)
         {
             var userInfo = userInfos.FirstOrDefault(_ => _.Id == m.FromUserId);
+            var userName = userInfo.UserName.Split(" ");
             var messageResponse = new MessageResponse()
             {
                 Id = m.Id,
@@ -229,8 +236,8 @@ public class ChatService
                 {
                     Id = userInfo.Id,
                     Avatar = string.Empty,
-                    FirstName = userInfo.UserName.Split(" ")[1],
-                    LastName = userInfo.UserName.Split(" ")[0],
+                    FirstName = userName.Length == 2 ? userName[1] : "",
+                    LastName = userName[0],
                     Email = userInfo.Email,
                 }
             };
@@ -273,6 +280,7 @@ public class ChatService
         foreach (var m in messages)
         {
             var userInfo = userInfos.FirstOrDefault(_ => _.Id == m.FromUserId);
+             var userName = userInfo.UserName.Split(" ");
             var messageResponse = new MessageResponse()
             {
                 Id = m.Id,
@@ -286,8 +294,8 @@ public class ChatService
                 {
                     Id = userInfo.Id,
                     Avatar = string.Empty,
-                    FirstName = userInfo.UserName.Split(" ")[1],
-                    LastName = userInfo.UserName.Split(" ")[0],
+                    FirstName = userName.Length == 2 ? userName[1] : "",
+                    LastName = userName[0],
                     Email = userInfo.Email,
                 }
             };
@@ -298,12 +306,13 @@ public class ChatService
 
         foreach (var user in userInfos)
         {
+            var userName = user.UserName.Split(" ");
             var userResponse = new UserResponse()
             {
                 Id = user.Id,
                 Avatar = string.Empty,
-                FirstName = user.UserName.Split(" ")[1],
-                LastName = user.UserName.Split(" ")[0],
+                FirstName = userName.Length == 2 ? userName[1] : "",
+                LastName = userName[0],
                 Email = user.Email,
                 ChatUser = new ChatUserResponse()
                 {
@@ -315,7 +324,7 @@ public class ChatService
         }
 
         var newChatter = userInfos.FirstOrDefault(_ => _.Id == userId);
-
+        var userNameChatter = newChatter.UserName.Split(" ");
         return new
         {
             Chat = new
@@ -329,8 +338,8 @@ public class ChatService
             {
                 Id = newChatter.Id,
                 Avatar = string.Empty,
-                FirstName = newChatter.UserName.Split(" ")[1],
-                LastName = newChatter.UserName.Split(" ")[0],
+                FirstName = userNameChatter.Length == 2 ? userNameChatter[1] : "",
+                LastName = userNameChatter[0],
                 Email = newChatter.Email,
             }
         };

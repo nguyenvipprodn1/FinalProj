@@ -4,7 +4,7 @@ import { accountSlice } from "../../features/account/accountSlice";
 import { basketSlice } from "../../features/basket/basketSlice";
 import { catalogSlice } from "../../features/catalog/catalogSlice";
 import { counterSlice } from "../../features/contact/counterSlice";
-import chatReducer from "../../features/Chats/reducers/chatSlice"
+import { chatSlice } from "../../features/Chats/reducers/chatSlice"
 
 export const store = configureStore({
     reducer: {
@@ -12,8 +12,12 @@ export const store = configureStore({
         basket: basketSlice.reducer,
         catalog: catalogSlice.reducer,
         account: accountSlice.reducer,
-        chat: chatReducer
-    }
+        chat: chatSlice.reducer
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false, // Disable serializable check
+        }),
 })
 
 export type RootState = ReturnType<typeof store.getState>;

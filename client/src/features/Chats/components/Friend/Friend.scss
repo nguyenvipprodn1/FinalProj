@@ -4,7 +4,7 @@
     padding: 15px;
     cursor: pointer;
     flex-direction: column;
-    min-width: fit-content;
+    height: 70px;
 
     @media (min-width: 800px) {
         flex-direction: row;
@@ -22,7 +22,6 @@
         .friend-info {
             display: flex;
             align-self: center;
-            flex-direction: column
         }
     }
 

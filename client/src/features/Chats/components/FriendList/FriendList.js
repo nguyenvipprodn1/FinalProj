@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, {useState, Fragment, useEffect} from "react";
 import { useDispatch } from "react-redux";
 import Friend from "../Friend/Friend";
 import { setCurrentChat } from "../../reducers/chatSlice";
@@ -20,28 +20,29 @@ const FriendList = () => {
   };
 
   const searchFriends = async (e) => {
-    const { data, status } = await agent.Chat.searchUsers(e.target.value);
+      if (e.target.value.length > 0){
+          await agent.Account.searchUsers(e.target.value)
+              .then((res)=>{
+                  setSuggestions(res);
+              })
+      }
 
-    if (status === 200) {
-      setSuggestions(data);
-    }
   };
 
   const addNewFriend = async (id) => {
-    const { data, status } = await agent.Chat.createChat(id);
-
-    if (status === 200) {
-      socket.invoke("AddFriend", { chats: data });
-      setShowFriendsModal(false);
-    }
+   await agent.Chat.createChat(id)
+       .then((res)=>{
+           socket.invoke("AddFriend", { chats: res });
+           setShowFriendsModal(false);
+       })
   };
 
   return (
     <div id="friends" className="shadow-light">
-      <div className="mb-2">
+      <div>
         <div id="title">
-          <h3 className="m-0 text-xl font-bold">Friends</h3>
-          <button onClick={() => setShowFriendsModal(true)}>ADD</button>
+          <h3 className="text-xl font-bold">Friends</h3>
+          <button onClick={() => setShowFriendsModal(true)} >ADD</button>
         </div>
       </div>
 

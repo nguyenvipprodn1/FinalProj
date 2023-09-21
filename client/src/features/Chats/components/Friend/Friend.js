@@ -10,7 +10,7 @@ const Friend = ({ chat, click }) => {
   };
 
   const lastMessage = () => {
-    if (chat.messages.length === 0) return "";
+    if (chat.messages === null || chat.messages.length === 0) return "";
 
     const message = chat.messages[chat.messages.length - 1];
     return message.type === "image" ? "image uploaded" : message.message;

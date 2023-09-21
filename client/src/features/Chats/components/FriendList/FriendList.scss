@@ -1,9 +1,8 @@
-@import "../../../../assets/scss/variables";
+@import '../../scss/_variables';
 
 #friends {
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
     background-color: #fff;
     margin-bottom: 1rem;
     border-radius: 20px;
@@ -20,7 +19,7 @@
         display: flex;
         justify-content: space-between;
         padding: 0 10px;
-        align-items: flex-end;
+        align-items: center;
 
         button {
             border: none;
@@ -44,6 +43,7 @@
         overflow-y: auto;
         display: flex;
         text-align: left;
+        height: 70px;
 
         @media (min-width: 800px) {
             flex-direction: column;

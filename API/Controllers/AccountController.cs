@@ -111,12 +111,13 @@ namespace API.Controllers
             var userInMessageList = new List<UserInMessage>();
             foreach (var userInfo in users)
             {
+                var userName = userInfo.UserName.Split(" ");
                 var userInMessage = new UserInMessage()
                 {
                     Id = userInfo.Id,
                     Avatar = string.Empty,
-                    FirstName = userInfo.UserName.Split(" ")[1],
-                    LastName = userInfo.UserName.Split(" ")[0],
+                    FirstName = userName.Length == 2 ? userName[1] : "",
+                    LastName = userName[0],
                     Email = userInfo.Email,
                 };
                 userInMessageList.Add(userInMessage);

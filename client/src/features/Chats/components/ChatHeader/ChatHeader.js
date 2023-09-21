@@ -5,6 +5,7 @@ import Modal from "../Modal/Modal";
 import agent from "../../../../app/api/agent";
 import "./ChatHeader.scss";
 import { useAppSelector } from "../../../../app/store/configureStore";
+import {faEllipsisVertical, faPlus, faRightFromBracket, faTrash} from "@fortawesome/free-solid-svg-icons";
 
 const ChatHeader = ({ chat }) => {
   const [showChatOptions, setShowChatOptions] = useState(false);
@@ -64,20 +65,20 @@ const ChatHeader = ({ chat }) => {
       </div>
       <FontAwesomeIcon
         onClick={() => setShowChatOptions(!showChatOptions)}
-        icon={["fas", "ellipsis-v"]}
+        icon={faEllipsisVertical}
         className="fa-icon"
       />
       {showChatOptions ? (
         <div id="settings">
           <div onClick={() => setShowAddFriendModal(true)}>
-            <FontAwesomeIcon icon={["fas", "user-plus"]} className="fa-icon" />
+            <FontAwesomeIcon icon={faPlus} className="fa-icon" />
             <p>Add user to chat</p>
           </div>
 
           {chat.type === "group" ? (
             <div onClick={() => leaveChat()}>
               <FontAwesomeIcon
-                icon={["fas", "sign-out-alt"]}
+                icon={faRightFromBracket}
                 className="fa-icon"
               />
               <p>Leave chat</p>
@@ -86,7 +87,7 @@ const ChatHeader = ({ chat }) => {
 
           {chat.type === "dual" ? (
             <div onClick={() => deleteChat()}>
-              <FontAwesomeIcon icon={["fas", "trash"]} className="fa-icon" />
+              <FontAwesomeIcon icon={faTrash} className="fa-icon" />
               <p>Delete chat</p>
             </div>
           ) : null}

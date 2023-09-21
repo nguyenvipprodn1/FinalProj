@@ -102,7 +102,7 @@ const Account = {
     register: (values: any) => requests.post('account/register', values),
     currentUser: () => requests.get('account/currentUser'),
     fetchAddress: () => requests.get('account/savedAddress'),
-    searchUsers: (term: any)=> requests.get(`account/search-users${term}`)
+    searchUsers: (term: any)=> requests.get(`account/search-users/${term}`)
 }
 
 const Orders = {

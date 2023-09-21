@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faFaceSmile, faPhotoFilm, faTimes, faUpload} from '@fortawesome/free-solid-svg-icons';
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import { incrementScroll } from "../../reducers/chatSlice";
@@ -75,7 +76,7 @@ const MessageInput = ({ chat }) => {
     formData.append("image", image);
 
     const { data, status } =
-      await agent.Chat.addFriendToGroupChatuploadImageChats(formData);
+      await agent.Chat.addFriendToGroupChat(formData);
 
     if (status === 200) {
       sendMessage(data);
@@ -136,20 +137,20 @@ const MessageInput = ({ chat }) => {
               <p className="m-0">{image.name}</p>
               <FontAwesomeIcon
                 onClick={handleImageUpload}
-                icon="upload"
+                icon={faUpload}
                 className="fa-icon"
               />
               <FontAwesomeIcon
                 onClick={() => setImage("")}
-                icon="times"
+                icon={faTimes}
                 className="fa-icon"
               />
             </div>
           ) : null}
           <FontAwesomeIcon
-            onClick={() => fileUpload.current.click()}
-            icon={["far", "image"]}
-            className="fa-icon"
+              onClick={() => fileUpload.current.click()}
+              icon={faPhotoFilm}
+              className="fa-icon"
           />
         </div>
       </div>
@@ -162,11 +163,7 @@ const MessageInput = ({ chat }) => {
           onChange={(e) => handleMessage(e)}
           onKeyDown={(e) => handleKeyDown(e, false)}
         />
-        <FontAwesomeIcon
-          onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-          icon={["far", "smile"]}
-          className="fa-icon"
-        />
+        <FontAwesomeIcon className="fa-icon" icon={faFaceSmile}  onClick={() => setShowEmojiPicker(!showEmojiPicker)} />
       </div>
 
       <input

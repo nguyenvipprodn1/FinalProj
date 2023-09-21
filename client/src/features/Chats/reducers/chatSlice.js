@@ -9,7 +9,7 @@ const initialState = {
     senderTyping: { typing: false },
 };
 
-const chatSlice = createSlice({
+export const chatSlice = createSlice({
     name: "chat",
     initialState,
     reducers: {
@@ -79,7 +79,8 @@ const chatSlice = createSlice({
             }
         },
         setSocket: (state, action) => {
-            // Update the socket property
+            console.log('fuck')
+            console.log(action.payload)
             state.socket = action.payload;
         },
         receivedMessage: (state, action) => {
@@ -278,5 +279,3 @@ export const {
     leaveCurrentChat,
     deleteCurrentChat
 } = chatSlice.actions;
-
-export default chatSlice.reducer;

@@ -1,17 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useSelector, useDispatch, connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
-import { incrementScroll } from "../../actions/chatActions";
+import { incrementScroll } from "../../reducers/chatSlice";
 import "./MessageInput.scss";
 import agent from "../../../../app/api/agent";
+import { useAppSelector } from "../../../../app/store/configureStore";
 
 const MessageInput = ({ chat }) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.authenticateReducer);
-  const socket = useSelector((state) => state.chatReducer.socket);
-  const newMessage = useSelector((state) => state.chatReducer.newMessage);
+  const user = useAppSelector((state) => state.account.user);
+  const socket = useAppSelector((state) => state.chat.socket);
+  const newMessage = useAppSelector((state) => state.chat.newMessage);
 
   const fileUpload = useRef();
   const msgInput = useRef();
@@ -189,10 +190,4 @@ const MessageInput = ({ chat }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    jwtToken: state.authenticateReducer.jwtToken,
-  };
-};
-
-export default connect(mapStateToProps, null)(MessageInput);
+export default MessageInput;

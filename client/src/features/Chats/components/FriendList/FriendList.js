@@ -1,15 +1,16 @@
 import React, { useState, Fragment } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Friend from "../Friend/Friend";
-import { setCurrentChat } from "../../actions/chatActions";
+import { setCurrentChat } from "../../reducers/chatSlice";
 import Modal from "../Modal/Modal";
 import agent from "../../../../app/api/agent";
 import "./FriendList.scss";
+import { useAppSelector } from "../../../../app/store/configureStore";
 
 const FriendList = () => {
   const dispatch = useDispatch();
-  const chats = useSelector((state) => state.chatReducer.chats);
-  const socket = useSelector((state) => state.chatReducer.socket);
+  const chats = useAppSelector((state) => state.chat.chats);
+  const socket = useAppSelector((state) => state.chat.socket);
 
   const [showFriendsModal, setShowFriendsModal] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
@@ -30,8 +31,6 @@ const FriendList = () => {
     const { data, status } = await agent.Chat.createChat(id);
 
     if (status === 200) {
-      console.log("add");
-      console.log({ chats: data });
       socket.invoke("AddFriend", { chats: data });
       setShowFriendsModal(false);
     }

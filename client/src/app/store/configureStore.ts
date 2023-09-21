@@ -4,17 +4,15 @@ import { accountSlice } from "../../features/account/accountSlice";
 import { basketSlice } from "../../features/basket/basketSlice";
 import { catalogSlice } from "../../features/catalog/catalogSlice";
 import { counterSlice } from "../../features/contact/counterSlice";
-
-// export function configureStore() {
-//     return createStore(counterReducer);
-// }
+import chatReducer from "../../features/Chats/reducers/chatSlice"
 
 export const store = configureStore({
     reducer: {
         counter: counterSlice.reducer,
         basket: basketSlice.reducer,
         catalog: catalogSlice.reducer,
-        account: accountSlice.reducer
+        account: accountSlice.reducer,
+        chat: chatReducer
     }
 })
 

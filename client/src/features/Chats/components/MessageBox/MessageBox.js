@@ -1,17 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Message from "../Message/Message";
-import { paginateMessages } from "../../actions/chatActions";
+import { paginateMessages } from "../../reducers/chatSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MessageBox.scss";
 import agent from "../../../../app/api/agent";
+import { useAppSelector } from "../../../../app/store/configureStore";
 
 const MessageBox = ({ chat }) => {
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.authenticateReducer);
-  const scrollBottom = useSelector((state) => state.chatReducer.scrollBottom);
-  const senderTyping = useSelector((state) => state.chatReducer.senderTyping);
+  const user = useAppSelector((state) => state.account.user);
+  const scrollBottom = useAppSelector((state) => state.chat.scrollBottom);
+  const senderTyping = useAppSelector((state) => state.chat.senderTyping);
   const [loading, setLoading] = useState(false);
   const [scrollUp, setScrollUp] = useState(0);
 

@@ -16,12 +16,13 @@ import {
   addUserToGroup,
   leaveCurrentChat,
   deleteCurrentChat,
-} from "./actions/chatActions";
+} from "./reducers/chatSlice";
 import agent from "../../app/api/agent";
+import { useAppSelector } from "../../app/store/configureStore";
 
 const Chat = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.authenticateReducer);
+  const user = useAppSelector((state) => state.account.user);
 
   useEffect(() => {
     (async () => await getChats())();

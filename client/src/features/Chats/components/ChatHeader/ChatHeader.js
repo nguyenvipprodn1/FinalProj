@@ -1,17 +1,17 @@
 import React, { Fragment, useState } from "react";
 import { userStatus } from "../../utility/chatHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSelector } from "react-redux";
 import Modal from "../Modal/Modal";
 import agent from "../../../../app/api/agent";
 import "./ChatHeader.scss";
+import { useAppSelector } from "../../../../app/store/configureStore";
 
 const ChatHeader = ({ chat }) => {
   const [showChatOptions, setShowChatOptions] = useState(false);
   const [showAddFriendModal, setShowAddFriendModal] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
 
-  const socket = useSelector((state) => state.chatReducer.socket);
+  const socket = useAppSelector((state) => state.chat.socket);
 
   const searchFriends = async (e) => {
     const { data, status } = await agent.Chat.searchUsers(e.target.value);

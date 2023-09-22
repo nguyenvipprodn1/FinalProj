@@ -30,8 +30,9 @@ public class ChatService
         var userIds = chatUsersContainChatWithUsers.Select(_ => _.UserId).Distinct().ToList(); // 
         var users = _context.Users.Where(_ => userIds.Contains(_.Id)).ToList(); // 
         var messages = _context.ChatMessages
+            .OrderByDescending(x=>x.CreateAt)
             .Where(_ => chatIds.Contains(_.ChatId)).Take(20).Skip(0)
-            .OrderByDescending(x=>x.CreateAt).ToList();
+            .ToList();
         var res = new List<GetChatByUserIdResponse>();
 
         foreach (var chat in chats)
@@ -209,9 +210,11 @@ public class ChatService
         var totalMessages = await _context.ChatMessages.CountAsync(_ => _.ChatId == id);
         var totalPages = Math.Ceiling(Convert.ToDecimal(totalMessages / limit));
         var messages = _context.ChatMessages
-            .Where(_ => _.ChatId == id).Take(limit).Skip(offset)
-            .OrderByDescending(x=>x.CreateAt).ToList();
-
+            .Where(_ => _.ChatId == id)
+            .ToList();
+        messages = messages.OrderByDescending(_ => _.CreateAt).ToList();
+        messages = messages.Skip(offset).Take(limit).ToList();
+        
         if (page > totalPages)
             return new { data = new { messages = new List<MessageResponse>() } };
 

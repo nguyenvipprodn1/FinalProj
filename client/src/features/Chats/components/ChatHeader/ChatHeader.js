@@ -65,20 +65,20 @@ const ChatHeader = ({ chat }) => {
       />
       {showChatOptions ? (
         <div id="settings">
-          <div onClick={() => setShowAddFriendModal(true)}>
-            <FontAwesomeIcon icon={faPlus} className="fa-icon" />
-            <p>Add user to chat</p>
-          </div>
+          {/*<div onClick={() => setShowAddFriendModal(true)}>*/}
+          {/*  <FontAwesomeIcon icon={faPlus} className="fa-icon" />*/}
+          {/*  <p>Add user to chat</p>*/}
+          {/*</div>*/}
 
-          {chat.type === "group" ? (
-            <div onClick={() => leaveChat()}>
-              <FontAwesomeIcon
-                icon={faRightFromBracket}
-                className="fa-icon"
-              />
-              <p>Leave chat</p>
-            </div>
-          ) : null}
+          {/*{chat.type === "group" ? (*/}
+          {/*  <div onClick={() => leaveChat()}>*/}
+          {/*    <FontAwesomeIcon*/}
+          {/*      icon={faRightFromBracket}*/}
+          {/*      className="fa-icon"*/}
+          {/*    />*/}
+          {/*    <p>Leave chat</p>*/}
+          {/*  </div>*/}
+          {/*) : null}*/}
 
           {chat.type === "dual" ? (
             <div onClick={() => deleteChat()}>

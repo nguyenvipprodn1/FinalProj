@@ -9,12 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Entities/ChatMessage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Entities/ChatMessage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/ChatHeader/ChatHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/ChatHeader/ChatHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/Friend/Friend.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/Friend/Friend.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/Message/Message.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/Message/Message.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/MessageBox/MessageBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/MessageBox/MessageBox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/MessageInput/MessageInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/MessageInput/MessageInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Services/ChatService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Services/ChatService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +80,7 @@
       <workItem from="1693042636410" duration="214000" />
       <workItem from="1695041713293" duration="3456000" />
       <workItem from="1695108347157" duration="10471000" />
-      <workItem from="1695227597314" duration="6541000" />
+      <workItem from="1695227597314" duration="13925000" />
     </task>
     <servers />
   </component>
@@ -111,55 +107,29 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/API/Services/ChatService.cs</url>
-          <line>121</line>
+          <line>122</line>
           <properties documentPath="$PROJECT_DIR$/API/Services/ChatService.cs" initialLine="121" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="4922" />
+              <option value="4935" />
             </startOffsets>
             <endOffsets>
-              <option value="5022" />
+              <option value="5035" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/API/SignalR/ChatHub.cs</url>
-          <line>134</line>
-          <properties documentPath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" initialLine="134" containingFunctionPresentation="Method 'Message'">
+          <url>file://$PROJECT_DIR$/API/Services/ImageService.cs</url>
+          <line>18</line>
+          <properties documentPath="$PROJECT_DIR$/API/Services/ImageService.cs" initialLine="18" containingFunctionPresentation="Method 'AddImageAsync'">
             <startOffsets>
-              <option value="3703" />
+              <option value="461" />
             </startOffsets>
             <endOffsets>
-              <option value="3771" />
+              <option value="504" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/API/Controllers/ChatsController.cs</url>
-          <line>45</line>
-          <properties documentPath="$PROJECT_DIR$/API/Controllers/ChatsController.cs" initialLine="45" containingFunctionPresentation="Method 'UpLoadImage'">
-            <startOffsets>
-              <option value="1498" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1552" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/API/Services/ChatService.cs</url>
-          <line>397</line>
-          <properties documentPath="$PROJECT_DIR$/API/Services/ChatService.cs" initialLine="397" containingFunctionPresentation="Method 'UpLoadImage'">
-            <startOffsets>
-              <option value="15008" />
-            </startOffsets>
-            <endOffsets>
-              <option value="15069" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -58,7 +58,11 @@ const Chat = () => {
         });
 
         connection.on("received", (message) => {
-          dispatch(receivedMessage(message, user.id));
+          let payload = {
+              message,
+              userId: user.id
+          }
+          dispatch(receivedMessage(payload));
         });
 
         connection.on("new-chat", (chat) => {

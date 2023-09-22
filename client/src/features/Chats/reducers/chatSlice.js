@@ -82,12 +82,11 @@ export const chatSlice = createSlice({
             state.socket = action.payload;
         },
         receivedMessage: (state, action) => {
-            const { message, userId } = action.payload;
+            const { userId, message } = action.payload;
+            let currentChatCopy = { ...state.currentChat };
+            let newMessage = { ...state.newMessage };
+            let scrollBottom = state.scrollBottom;
 
-            let currentChatCopy = { ...state.currentChat }
-            let newMessage = { ...state.newMessage }
-            let scrollBottom = state.scrollBottom
-            // Modify state based on the action payload
             const chatsCopy = state.chats.map((chat) => {
                 if (message.chatId === chat.id) {
                     if (message.user.id === userId) {
@@ -106,18 +105,28 @@ export const chatSlice = createSlice({
                         };
                     }
 
-                    state.messages= [...chat.messages, message];
+                    return {
+                        ...chat,
+                        messages: [...chat.messages, message],
+                    };
                 }
 
                 return chat;
             });
 
-
-            state.chats = chatsCopy;
-            state.currentChat = currentChatCopy;
-            state.newMessage =  newMessage;
-            state.currentChat = scrollBottom;
-            state.senderTyping =  { typing: false };
+            if (scrollBottom === state.scrollBottom) {
+                state.chats = chatsCopy;
+                state.currentChat= currentChatCopy;
+                state.newMessage = newMessage;
+                state.senderTyping = { typing: false };
+            }else {
+                // Update the state object based on the condition
+                state.chats = chatsCopy;
+                state.currentChat = currentChatCopy;
+                state.newMessage = newMessage;
+                state.senderTyping = { typing: false };
+                state.scrollBottom = scrollBottom;
+            }
         },
         senderTyping: (state, action) => {
             const { typing } = action.payload;

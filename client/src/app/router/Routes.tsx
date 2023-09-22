@@ -27,6 +27,7 @@ export const router = createBrowserRouter([
         children: [
           { path: "checkout", element: <CheckoutWrapper /> },
           { path: "orders", element: <Orders /> },
+          { path: "chat", element: <Chat /> },
         ],
       },
       // admin routes
@@ -39,7 +40,6 @@ export const router = createBrowserRouter([
         children: [{ path: "dashboard", element: <Dashboard /> }],
       },
       { path: "catalog", element: <Catalog /> },
-      { path: "chat", element: <Chat /> },
       { path: "catalog/:id", element: <ProductDetails /> },
       { path: "about", element: <AboutPage /> },
       { path: "contact", element: <ContactPage /> },

@@ -9,8 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Services/ChatService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Services/ChatService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +78,7 @@
       <workItem from="1693042636410" duration="214000" />
       <workItem from="1695041713293" duration="3456000" />
       <workItem from="1695108347157" duration="10471000" />
-      <workItem from="1695227597314" duration="13925000" />
+      <workItem from="1695227597314" duration="15492000" />
     </task>
     <servers />
   </component>

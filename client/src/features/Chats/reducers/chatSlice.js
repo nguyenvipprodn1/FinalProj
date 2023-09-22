@@ -28,11 +28,10 @@ export const chatSlice = createSlice({
             state.newMessage = { chatId: null, seen: null };
         },
         onlineFriends: (state, action) => {
-            const { payload: friends } = action;
             // Update the status of friends who are online
             state.chats.forEach((chat) => {
                 chat.users.forEach((user) => {
-                    if (friends.includes(user.id)) {
+                    if (action.payload.includes(user.id)) {
                         user.status = "online";
                     }
                 });

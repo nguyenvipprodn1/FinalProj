@@ -175,5 +175,47 @@ namespace API.Controllers
                 .ThenInclude(p => p.Product)
                 .FirstOrDefaultAsync(basket => basket.BuyerId == buyerId);
         }
+        
+        [Authorize]
+        [HttpGet("get-all")]
+        public async Task<IActionResult> Index()
+        {
+            var userList = _context.Users.ToList();
+            
+            foreach (var user in userList)
+            {
+                var roleTemp = await _userManager.GetRolesAsync(user);
+                user.Role = string.Join(", ", roleTemp);
+            }
+
+            return Ok(userList.ToList());
+        }
+        
+        [Authorize]
+        [HttpPut("update/{id:int}")]
+        public async Task<IActionResult> Update(int id, UpdateRoleDtos model)
+        {
+            var user = _context.Users.Find(id);
+
+            var roleOld = await _userManager.GetRolesAsync(user);
+            await _userManager.RemoveFromRoleAsync(user, roleOld.First());
+            await _userManager.AddToRoleAsync(user, model.Role);
+            
+            _context.SaveChanges();
+            
+            return Ok();
+        }
+        
+        [Authorize]
+        [HttpDelete("delete/{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var user = _context.Users.Find(id);
+
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+            
+            return Ok();
+        }
     }
 }

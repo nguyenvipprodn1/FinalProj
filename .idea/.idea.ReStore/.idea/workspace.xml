@@ -8,13 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/API/DTOs/UpdateRoleDtos.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/features/userManagement/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/features/userManagement/update.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/Data/DbInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/DbInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Entities/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/FriendList/FriendList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/FriendList/FriendList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/router/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/router/Routes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +86,7 @@
       <workItem from="1695041713293" duration="3456000" />
       <workItem from="1695108347157" duration="10471000" />
       <workItem from="1695227597314" duration="19867000" />
-      <workItem from="1695564064424" duration="3625000" />
+      <workItem from="1695564064424" duration="7570000" />
     </task>
     <servers />
   </component>
@@ -122,17 +125,17 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/API/Services/ChatService.cs</url>
-          <line>23</line>
-          <properties documentPath="$PROJECT_DIR$/API/Services/ChatService.cs" initialLine="23" containingFunctionPresentation="Method 'GetChatByUserId'">
+          <url>file://$PROJECT_DIR$/API/Controllers/AccountController.cs</url>
+          <line>199</line>
+          <properties documentPath="$PROJECT_DIR$/API/Controllers/AccountController.cs" initialLine="199" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="510" />
+              <option value="6689" />
             </startOffsets>
             <endOffsets>
-              <option value="585" />
+              <option value="6742" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

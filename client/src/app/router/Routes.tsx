@@ -15,6 +15,7 @@ import App from "../layout/App";
 import RequireAuth from "./RequireAuth";
 import Dashboard from "../../features/dashboard/Dashboard";
 import Chat from "../../features/Chats/Chat";
+import UserManagement from "../../features/userManagement";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         element: <RequireAuth roles={["Admin"]} />,
         children: [{ path: "dashboard", element: <Dashboard /> }],
+      },
+      {
+        element: <RequireAuth roles={["Admin"]} />,
+        children: [{ path: "users", element: <UserManagement /> }],
       },
       { path: "catalog", element: <Catalog /> },
       { path: "catalog/:id", element: <ProductDetails /> },

@@ -103,7 +103,10 @@ const Account = {
     currentUser: () => requests.get('account/currentUser'),
     fetchAddress: () => requests.get('account/savedAddress'),
     searchUsers: (term: any)=> requests.get(`account/search-users/${term}`),
-    loadStaff: ()=> requests.get(`account/load-staff`)
+    loadStaff: ()=> requests.get(`account/load-staff`),
+    getAll: ()=> requests.get(`account/get-all`),
+    updateUser: (id: any, payload: any)=> requests.put(`account/update/${id}`,payload),
+    delete: (id:any)=> requests.delete(`account/delete/${id}`),
 }
 
 const Orders = {

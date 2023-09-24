@@ -79,6 +79,9 @@ export default function Header({ handleThemeChange, darkMode }: Props) {
               <ListItem component={NavLink} to={"/inventory"} sx={navStyles}>
                 INVENTORY
               </ListItem>
+              <ListItem component={NavLink} to={"/users"} sx={navStyles}>
+                USERS
+              </ListItem>
               <ListItem component={NavLink} to={"/dashboard"} sx={navStyles}>
                 DASHBOARD
               </ListItem>

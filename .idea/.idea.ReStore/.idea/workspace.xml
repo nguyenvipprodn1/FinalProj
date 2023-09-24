@@ -9,7 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Data/DbInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/DbInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api/agent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/FriendList/FriendList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/FriendList/FriendList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +26,7 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/tringuyen/Desktop/NguyenFinalPrj/FinalProj/API/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/tringuyen/Desktop/NguyenFinalPrj/FinalProj/API/Controllers/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a5b7361b97024742be89da7232532843ae0c00/a3/00175521/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2UW5jt95GNIhTqCwosz4gZmRZV3" />
@@ -78,7 +82,8 @@
       <workItem from="1693042636410" duration="214000" />
       <workItem from="1695041713293" duration="3456000" />
       <workItem from="1695108347157" duration="10471000" />
-      <workItem from="1695227597314" duration="15492000" />
+      <workItem from="1695227597314" duration="19867000" />
+      <workItem from="1695564064424" duration="3625000" />
     </task>
     <servers />
   </component>
@@ -104,19 +109,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/API/Services/ChatService.cs</url>
-          <line>122</line>
-          <properties documentPath="$PROJECT_DIR$/API/Services/ChatService.cs" initialLine="121" containingFunctionPresentation="Method 'Create'">
-            <startOffsets>
-              <option value="4935" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5035" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/API/Services/ImageService.cs</url>
           <line>18</line>
           <properties documentPath="$PROJECT_DIR$/API/Services/ImageService.cs" initialLine="18" containingFunctionPresentation="Method 'AddImageAsync'">
@@ -128,6 +120,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/API/Services/ChatService.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/API/Services/ChatService.cs" initialLine="23" containingFunctionPresentation="Method 'GetChatByUserId'">
+            <startOffsets>
+              <option value="510" />
+            </startOffsets>
+            <endOffsets>
+              <option value="585" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

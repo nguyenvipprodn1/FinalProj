@@ -106,8 +106,44 @@ namespace API.Controllers
         [HttpGet("search-users/{term}")]
         public async Task<ActionResult<IEnumerable<UserInMessage>>> Search(string term)
         {
-            var users = _userManager.Users.Where(_ => _.UserName.ToLower().Trim().Contains(term.ToLower().Trim())).ToList();
+            var users = new List<User>();
+           
+            var usersInStaffRole = await _userManager.GetUsersInRoleAsync("Staff");
 
+            // Filter users by the provided term (case-insensitive)
+            users = usersInStaffRole
+                .Where(user => user.UserName.ToLower().Contains(term.ToLower()))
+                .ToList();
+         
+
+            var userInMessageList = new List<UserInMessage>();
+            foreach (var userInfo in users)
+            {
+                var userName = userInfo.UserName.Split(" ");
+                var userInMessage = new UserInMessage()
+                {
+                    Id = userInfo.Id,
+                    Avatar = string.Empty,
+                    FirstName = userName.Length == 2 ? userName[1] : "",
+                    LastName = userName[0],
+                    Email = userInfo.Email,
+                };
+                userInMessageList.Add(userInMessage);
+            }
+
+            return Ok(userInMessageList);
+        }
+        
+        [Authorize]
+        [HttpGet("load-staff")]
+        public async Task<ActionResult<IEnumerable<UserInMessage>>> LoadStaff()
+        {
+            var users = new List<User>();
+            
+            var usersInStaffRole = await _userManager.GetUsersInRoleAsync("Staff");
+            
+            users = usersInStaffRole.ToList();
+            
             var userInMessageList = new List<UserInMessage>();
             foreach (var userInfo in users)
             {

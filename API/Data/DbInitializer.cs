@@ -26,6 +26,42 @@ namespace API.Data
 
                 await userManager.CreateAsync(admin, "Pa$$w0rd");
                 await userManager.AddToRolesAsync(admin, new[] {"Member", "Admin"});
+                
+                var staff1 = new User
+                {
+                    UserName = "staff1",
+                    Email = "staff1@test.com"
+                };
+
+                await userManager.CreateAsync(staff1, "Pa$$w0rd");
+                await userManager.AddToRolesAsync(staff1, new[] {"Staff"});
+                
+                var staff2 = new User
+                {
+                    UserName = "staff2",
+                    Email = "staff2@test.com"
+                };
+
+                await userManager.CreateAsync(staff2, "Pa$$w0rd");
+                await userManager.AddToRolesAsync(staff2, new[] {"Staff"});
+                
+                var staff3 = new User
+                {
+                    UserName = "staff3",
+                    Email = "staff3@test.com"
+                };
+
+                await userManager.CreateAsync(staff3, "Pa$$w0rd");
+                await userManager.AddToRolesAsync(staff3, new[] {"Staff"});
+                
+                var staff4 = new User
+                {
+                    UserName = "staff4",
+                    Email = "staff4@test.com"
+                };
+
+                await userManager.CreateAsync(staff4, "Pa$$w0rd");
+                await userManager.AddToRolesAsync(staff4, new[] {"Staff"});
             }
             
 

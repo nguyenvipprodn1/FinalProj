@@ -15,6 +15,18 @@ const FriendList = () => {
   const [showFriendsModal, setShowFriendsModal] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
 
+  useEffect(()=>{
+      (async ()=>{
+          await agent.Account.loadStaff()
+              .then((res)=>{
+                  setSuggestions(res);
+              })
+      })();
+
+      console.log('chats')
+      console.log(chats)
+},[])
+
   const openChat = (chat) => {
     dispatch(setCurrentChat(chat));
   };
@@ -26,7 +38,6 @@ const FriendList = () => {
                   setSuggestions(res);
               })
       }
-
   };
 
   const addNewFriend = async (id) => {
@@ -41,8 +52,8 @@ const FriendList = () => {
     <div id="friends" className="shadow-light">
       <div>
         <div id="title">
-          <h3 className="text-xl font-bold">Friends</h3>
-          <button onClick={() => setShowFriendsModal(true)} >ADD</button>
+          <h3 className="text-xl font-bold">Staff</h3>
+          <button onClick={() => setShowFriendsModal(true)} >Choose Staff</button>
         </div>
       </div>
 
@@ -52,11 +63,13 @@ const FriendList = () => {
         {chats.length > 0 ? (
           chats.map((chat) => {
             return (
-              <Friend click={() => openChat(chat)} chat={chat} key={chat.id} />
+                <>
+                    <Friend click={() => openChat(chat)} chat={chat} key={chat.id} />
+                </>
             );
           })
         ) : (
-          <p id="no-chat">No friends added</p>
+          <p id="no-chat">No Staff added</p>
         )}
       </div>
       {showFriendsModal && (
@@ -66,7 +79,7 @@ const FriendList = () => {
           </Fragment>
 
           <Fragment key="body">
-            <p>Find friends by typing their name bellow</p>
+            <p>Find Staff by typing their name bellow</p>
             <input
               onInput={(e) => searchFriends(e)}
               type="text"
@@ -79,7 +92,7 @@ const FriendList = () => {
                     <p className="m-0">
                       {user.firstName} {user.lastName}
                     </p>
-                    <button onClick={() => addNewFriend(user.id)}>ADD</button>
+                    <button onClick={() => addNewFriend(user.id)}>Choose</button>
                   </div>
                 );
               })}

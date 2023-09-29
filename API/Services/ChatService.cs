@@ -166,6 +166,15 @@ public class ChatService
         {
             Id = chat.Id,
             Type = "dual",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow,
+            ChatUser = new
+            {
+                chatId = chat.Id,
+                userId = userId,
+                createdAt = DateTime.UtcNow,
+                updatedAt = DateTime.UtcNow
+            },
             Users = new List<UserInMessage>()
             {
                 new UserInMessage()
@@ -176,7 +185,7 @@ public class ChatService
                     LastName = userName[0],
                     Email = partnerInfo.Email,
                 }
-            },
+            }
         };
 
         var userNameOfUser = userInfo.UserName.Split(" ");
@@ -184,6 +193,15 @@ public class ChatService
         {
             Id = chat.Id,
             Type = "dual",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow,
+            ChatUser = new
+            {
+                chatId = chat.Id,
+                userId = partnerId,
+                createdAt = DateTime.UtcNow,
+                updatedAt = DateTime.UtcNow
+            },
             Users = new List<UserInMessage>()
             {
                 new UserInMessage()

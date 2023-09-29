@@ -2,7 +2,7 @@ import React from "react";
 import { userStatus } from "../../utility/chatHelper";
 import "./Friend.scss";
 import { useAppSelector } from "../../../../app/store/configureStore";
-const Friend = ({ chat, click }) => {
+const Friend = ({ chat, click, ...props }) => {
   const currentChat = useAppSelector((state) => state.chat.currentChat);
 
   const isChatOpened = () => {
@@ -17,7 +17,7 @@ const Friend = ({ chat, click }) => {
   };
 
   return (
-    <div onClick={click} className={`friend-list ${isChatOpened()}`}>
+    <div onClick={click} className={`friend-list ${isChatOpened()}`} {...props}>
       <div>
         <img
           width="40"

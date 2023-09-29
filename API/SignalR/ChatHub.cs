@@ -26,20 +26,19 @@ public class ChatHub : Hub
     {
         var sockets = new HashSet<string>();
 
-        if (!users.ContainsKey(user.Id))
-        // {
-        //     var existingUser = users[user.Id];
-        //     if (!existingUser.Sockets.Contains(Context.ConnectionId))
-        //         existingUser.Sockets.Add(Context.ConnectionId);
-        //
-        //     users[user.Id] = existingUser;
-        //     sockets = existingUser.Sockets;
-        //     userSockets[Context.ConnectionId] = user.Id;
-        // }
-        // else
+        if (users.ContainsKey(user.Id))
         {
-            users[user.Id] = new UserConnection
-                { Id = user.Id, Sockets = new HashSet<string> { Context.ConnectionId } };
+            var existingUser = users[user.Id];
+            if(!existingUser.Sockets.Contains(Context.ConnectionId))
+                existingUser.Sockets.Add(Context.ConnectionId);
+                
+            users[user.Id] = existingUser;
+            sockets = existingUser.Sockets;
+            userSockets[Context.ConnectionId] = user.Id;
+        }
+        else
+        {
+            users[user.Id] = new UserConnection {Id = user.Id, Sockets = new HashSet<string> {Context.ConnectionId}};
             sockets.Add(Context.ConnectionId);
             userSockets[Context.ConnectionId] = user.Id;
         }
@@ -169,6 +168,10 @@ public class ChatHub : Hub
     {
         try
         {
+            foreach (var chat in model.Chats)
+            {
+                chat.Messages = new List<object>();
+            }
             string online = "offline";
 
             if (users.ContainsKey(model.Chats[1].Users[0].Id))

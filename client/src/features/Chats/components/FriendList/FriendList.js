@@ -1,4 +1,4 @@
-import React, {useState, Fragment, useEffect} from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Friend from "../Friend/Friend";
 import { setCurrentChat } from "../../reducers/chatSlice";
@@ -15,37 +15,31 @@ const FriendList = () => {
   const [showFriendsModal, setShowFriendsModal] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
 
-  useEffect(()=>{
-      (async ()=>{
-          await agent.Account.loadStaff()
-              .then((res)=>{
-                  setSuggestions(res);
-              })
-      })();
-
-      console.log('chats')
-      console.log(chats)
-},[])
+  useEffect(() => {
+    (async () => {
+      await agent.Account.loadStaff().then((res) => {
+        setSuggestions(res);
+      });
+    })();
+  }, []);
 
   const openChat = (chat) => {
     dispatch(setCurrentChat(chat));
   };
 
   const searchFriends = async (e) => {
-      if (e.target.value.length > 0){
-          await agent.Account.searchUsers(e.target.value)
-              .then((res)=>{
-                  setSuggestions(res);
-              })
-      }
+    if (e.target.value.length > 0) {
+      await agent.Account.searchUsers(e.target.value).then((res) => {
+        setSuggestions(res);
+      });
+    }
   };
 
   const addNewFriend = async (id) => {
-   await agent.Chat.createChat(id)
-       .then((res)=>{
-           socket.invoke("AddFriend", { chats: res });
-           setShowFriendsModal(false);
-       })
+    await agent.Chat.createChat(id).then((res) => {
+      socket.invoke("AddFriend", { chats: res });
+      setShowFriendsModal(false);
+    });
   };
 
   return (
@@ -53,7 +47,9 @@ const FriendList = () => {
       <div>
         <div id="title">
           <h3 className="text-xl font-bold">Staff</h3>
-          <button onClick={() => setShowFriendsModal(true)} >Choose Staff</button>
+          <button onClick={() => setShowFriendsModal(true)}>
+            Choose Staff
+          </button>
         </div>
       </div>
 
@@ -61,11 +57,11 @@ const FriendList = () => {
 
       <div id="friends-box">
         {chats.length > 0 ? (
-          chats.map((chat) => {
+          chats.map((chat, i) => {
             return (
-                <>
-                    <Friend click={() => openChat(chat)} chat={chat} key={chat.id} />
-                </>
+              <>
+                <Friend click={() => openChat(chat)} chat={chat} key={i} />
+              </>
             );
           })
         ) : (
@@ -86,13 +82,15 @@ const FriendList = () => {
               placeholder="Search..."
             />
             <div id="suggestions">
-              {suggestions.map((user) => {
+              {suggestions.map((user, i) => {
                 return (
-                  <div key={user.id} className="suggestion">
+                  <div key={i} className="suggestion">
                     <p className="m-0">
                       {user.firstName} {user.lastName}
                     </p>
-                    <button onClick={() => addNewFriend(user.id)}>Choose</button>
+                    <button onClick={() => addNewFriend(user.id)}>
+                      Choose
+                    </button>
                   </div>
                 );
               })}

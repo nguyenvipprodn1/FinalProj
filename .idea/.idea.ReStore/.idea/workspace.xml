@@ -8,17 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/API/Services/SendMailBusinessService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Utility/MailBusinessSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/Utility/MailContent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/DTOs/Chats/CreateChatResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/DTOs/Chats/CreateChatResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/ChatModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/DTOs/Chats/SignalRChatVM/ChatModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Services/ChatService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Services/ChatService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/SignalR/ChatHub.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/client/.env.production" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/Friend/Friend.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/Friend/Friend.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/components/FriendList/FriendList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/components/FriendList/FriendList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/Chats/reducers/chatSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/API/API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/API/appsettings.Development.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,27 +34,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.5007278",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5007278&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache",
-      "/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache",
-      "/Users/tringuyen/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/tringuyen/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/API/API.csproj" />
@@ -90,7 +86,9 @@
       <workItem from="1695227597314" duration="19867000" />
       <workItem from="1695564064424" duration="7854000" />
       <workItem from="1695728558763" duration="1413000" />
-      <workItem from="1695976867284" duration="7532000" />
+      <workItem from="1695976867284" duration="7685000" />
+      <workItem from="1696564232700" duration="846000" />
+      <workItem from="1697094911335" duration="1491000" />
     </task>
     <servers />
   </component>

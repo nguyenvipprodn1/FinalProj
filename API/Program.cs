@@ -6,6 +6,7 @@ using API.Middleware;
 using API.RequestHelpers;
 using API.Services;
 using API.SignalR;
+using API.Utility;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -100,6 +101,11 @@ builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<PaymentService>();
 builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<ChatService>();
+
+builder.Services.AddTransient<SendMailBusinessService>();
+builder.Services.AddOptions();
+var mailBusinessSettings = builder.Configuration.GetSection ("MailBusinessSettings"); 
+builder.Services.Configure<MailBusinessSettings> (mailBusinessSettings);
 
 builder.Services.AddSingleton<IDictionary<int, UserConnection>>(opts => new Dictionary<int, UserConnection>());
 builder.Services.AddSingleton<IDictionary<string, int>>(opts => new Dictionary<string, int>());

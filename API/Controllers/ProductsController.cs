@@ -315,7 +315,7 @@ namespace API.Controllers
                 await _context.Products.AddRangeAsync(validData);
                 await _context.SaveChangesAsync();
 
-                return mappedData;
+                return validData;
             }
         }
 

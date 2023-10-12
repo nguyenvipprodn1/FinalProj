@@ -10,6 +10,21 @@ import { useAppDispatch } from "../../app/store/configureStore";
 import { currencyFormat } from "../../app/util/util";
 import { removeProduct, setPageNumber } from "../catalog/catalogSlice";
 import ProductForm from "./ProductForm";
+import Backdrop from '@mui/material/Backdrop';
+import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import ExcelUpload from "./ExcelUpload";
+
+const style = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 900,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+};
 
 export default function Inventory() {
     const {products, metaData} = useProducts();
@@ -18,6 +33,10 @@ export default function Inventory() {
     const [selectedProduct, setSelectedProduct] = useState<Product | undefined>(undefined);
     const [loading, setLoading] = useState(false);
     const [target, setTarget] = useState(0);
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
 
     function handleSelectProduct(product: Product) {
         setSelectedProduct(product);
@@ -44,7 +63,10 @@ export default function Inventory() {
         <>
             <Box display='flex' justifyContent='space-between'>
                 <Typography sx={{ p: 2 }} variant='h4'>Inventory</Typography>
-                <Button onClick={() => setEditMode(true)} sx={{ m: 2 }} size='large' variant='contained'>Create</Button>
+                <Box>
+                    <Button onClick={() => setOpen(true)} sx={{ m: 2 }} size='large' variant='contained' color="warning">Upload Excel</Button>
+                    <Button onClick={() => setEditMode(true)} sx={{ m: 2 }} size='large' variant='contained'>Create</Button>
+                </Box>
             </Box>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -99,6 +121,25 @@ export default function Inventory() {
                         onPageChange={(page: number) => dispatch(setPageNumber({pageNumber: page}))} />
                 </Box>
             }
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                slots={{ backdrop: Backdrop }}
+                slotProps={{
+                    backdrop: {
+                        timeout: 500,
+                    },
+                }}
+            >
+                <Fade in={open}>
+                    <Box sx={style}>
+                        <ExcelUpload setOpenImportModal={setOpen}/>
+                    </Box>
+                </Fade>
+            </Modal>
         </>
     )
 }

@@ -122,7 +122,10 @@ const Payments = {
 const Admin = {
     createProduct: (product: any) => requests.postForm('products', createFormData(product)),
     updateProduct: (product: any) => requests.putForm('products', createFormData(product)),
-    deleteProduct: (id: number) => requests.delete(`products/${id}`)
+    deleteProduct: (id: number) => requests.delete(`products/${id}`),
+    getFields: () => requests.get(`products/available-fields`),
+    uploadExcels:  (fromData: any) => requests.postForm(`products/upload-excel`, fromData),
+    finalUploadExcels:  (fromData: any) => requests.postForm(`products/final-upload-excel`, fromData),
 }
 
 const Chat = {

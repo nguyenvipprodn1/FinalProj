@@ -68,6 +68,9 @@ export default function ProductForm({ product, cancelEdit }: Props) {
                         <AppTextInput type='number' control={control} name='price' label='Price' />
                     </Grid>
                     <Grid item xs={12} sm={6}>
+                        <AppTextInput type='number' control={control} name='basePrice' label='Base Price' />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
                         <AppTextInput type='number' control={control} name='quantityInStock' label='Quantity in Stock' />
                     </Grid>
                     <Grid item xs={12}>

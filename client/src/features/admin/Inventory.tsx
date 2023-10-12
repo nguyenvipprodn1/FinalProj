@@ -53,6 +53,7 @@ export default function Inventory() {
                             <TableCell>#</TableCell>
                             <TableCell align="left">Product</TableCell>
                             <TableCell align="right">Price</TableCell>
+                            <TableCell align="right">BasePrice</TableCell>
                             <TableCell align="center">Type</TableCell>
                             <TableCell align="center">Brand</TableCell>
                             <TableCell align="center">Quantity</TableCell>
@@ -75,6 +76,7 @@ export default function Inventory() {
                                     </Box>
                                 </TableCell>
                                 <TableCell align="right">{currencyFormat(product.price)}</TableCell>
+                                <TableCell align="right">{currencyFormat(product.basePrice)}</TableCell>
                                 <TableCell align="center">{product.type}</TableCell>
                                 <TableCell align="center">{product.brand}</TableCell>
                                 <TableCell align="center">{product.quantityInStock}</TableCell>

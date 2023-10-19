@@ -8,20 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/API/Controllers/CouponsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/DTOs/CouponDtos.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/components/AppSelectListKeyId.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/features/coupon/coupon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/features/coupon/couponForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/features/coupon/couponValidation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Entities/ProductDiscount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Entities/ProductDiscount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/RequestHelpers/MappingProfiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/RequestHelpers/MappingProfiles.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/layout/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/router/Routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/router/Routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/AccountController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +85,7 @@
       <workItem from="1695976867284" duration="7685000" />
       <workItem from="1696564232700" duration="846000" />
       <workItem from="1697094911335" duration="10466000" />
-      <workItem from="1697614635990" duration="4568000" />
+      <workItem from="1697614635990" duration="5685000" />
     </task>
     <servers />
   </component>

@@ -211,7 +211,17 @@ namespace API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var user = _context.Users.Find(id);
+            
+            var chatUsersToDelete = _context.ChatUsers.Where(_ => _.UserId == id).ToList();
+            _context.ChatUsers.RemoveRange(chatUsersToDelete);
+        
+            var messagesToDelete = _context.ChatMessages.Where(_ => _.FromUserId == id).ToList();
+            _context.ChatMessages.RemoveRange(messagesToDelete);
 
+            var chatIds = chatUsersToDelete.Select(_ => _.ChatId);
+            var chatsToDelete = _context.Chats.Where(_ =>chatIds.Contains(_.Id)).ToList();
+            _context.Chats.RemoveRange(chatsToDelete);
+            
             _context.Users.Remove(user);
             _context.SaveChanges();
             

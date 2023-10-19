@@ -138,6 +138,15 @@ const Chat = {
     deleteCurrentChat: (chatId: number) => requests.delete(`/chats/${chatId}`),
 }
 
+const Coupon = {
+    getAll: () => requests.get('coupons'),
+    getById: (id: number) => requests.get(`coupons/${id}`),
+    createCoupon: (coupon: any) => requests.post('coupons', coupon),
+    updateCoupon: (id:number,coupon: any) => requests.put(`coupons/${id}`, coupon),
+    deleteCoupon: (id: number) => requests.delete(`coupons/${id}`),
+}
+
+
 const agent = {
     Catalog,
     TestErrors,
@@ -146,7 +155,8 @@ const agent = {
     Orders,
     Payments,
     Admin,
-    Chat
+    Chat,
+    Coupon
 }
 
 export default agent;

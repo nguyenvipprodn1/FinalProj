@@ -2,6 +2,11 @@ namespace API.Entities;
 
 public class ProductDiscount
 {
+    public ProductDiscount()
+    {
+        DateCreated = DateTime.UtcNow;
+    }
+    
     public int Id { get; set; }
     public int ProductId { get; set; }
     public Product Product { get; set; }

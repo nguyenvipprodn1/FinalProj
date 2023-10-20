@@ -1,6 +1,6 @@
 import {Box, Paper, Typography, Grid, Button, TextField} from "@mui/material";
 import React, { useEffect } from "react";
-import {Controller, useForm} from "react-hook-form";
+import { useForm} from "react-hook-form";
 import AppTextInput from "../../app/components/AppTextInput";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationSchema } from "./couponValidation";

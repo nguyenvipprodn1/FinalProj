@@ -3,7 +3,9 @@ using API.DTOs;
 using API.Entities;
 using API.Entities.OrderAggregate;
 using API.Extensions;
+using API.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,11 +14,15 @@ namespace API.Controllers
     [Authorize]
     public class OrdersController : BaseApiController
     {
+        private readonly UserManager<User> _userManager;
         private readonly StoreContext _context;
+        private readonly SendMailBusinessService _emailService;
 
-        public OrdersController(StoreContext context)
+        public OrdersController(StoreContext context, SendMailBusinessService emailService, UserManager<User> userManager)
         {
             _context = context;
+            _emailService = emailService;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -108,9 +114,43 @@ namespace API.Controllers
 
             var result = await _context.SaveChangesAsync() > 0;
 
-            if (result) return CreatedAtRoute("GetOrder", new { id = order.Id }, order.Id);
+            if (result)
+            {
+                await SendMailConfirmOrder(items, subtotal.ToString());
+                return CreatedAtRoute("GetOrder", new { id = order.Id }, order.Id);
+            }
 
             return BadRequest("Problem creating order");
+        }
+
+        private async Task SendMailConfirmOrder(List<OrderItem> items, string totalPrice)
+        {
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+            
+            var message = await System.IO.File.ReadAllTextAsync("Emails/ConfirmOrders/index.html");
+            message = message.Replace("[[Date]]", DateTime.Today.ToLongDateString());
+            message = message.Replace("[[Name]]", user.UserName);
+
+            string productBuilder = "";
+            foreach (var item in items)
+            {
+                var product = await System.IO.File.ReadAllTextAsync("Emails/ConfirmOrders/product.html");
+                product = product.Replace("[[ProductName]]", item.ItemOrdered.Name);
+                product = product.Replace("[[ProductPrice]]", item.Price.ToString());
+                var pd = await _context.Products.FindAsync(item.ItemOrdered.ProductId);
+                product = product.Replace("[[ProductImage]]",pd.PictureUrl);
+                
+                productBuilder += product;
+            }
+
+            message = message.Replace("[[Product]]", productBuilder);
+            
+            var total = await System.IO.File.ReadAllTextAsync("Emails/ConfirmOrders/total.html");
+            total = total.Replace("[[TotalValue]]", totalPrice);
+            
+            message = message.Replace("[[Total]]", total);
+            
+            await _emailService.SendEmailAsync(user.Email, "Order Confirm", message);
         }
     }
 }

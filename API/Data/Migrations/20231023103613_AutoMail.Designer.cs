@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20231023103613_AutoMail")]
+    partial class AutoMail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +35,6 @@ namespace API.Data.Migrations
 
                     b.Property<string>("Content")
                         .HasColumnType("text");
-
-                    b.Property<int>("CouponInfoId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Gmail")
                         .HasColumnType("text");
@@ -186,9 +186,6 @@ namespace API.Data.Migrations
 
                     b.Property<int?>("ProductDiscountId")
                         .HasColumnType("integer");
-
-                    b.Property<DateTime>("ScheduleOn")
-                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Subject")
                         .HasColumnType("text");

@@ -13,6 +13,8 @@ namespace API.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDiscount> ProductDiscounts { get; set; }
+        public DbSet<CouponMarketingInfo> CouponMarketingInfos { get; set; }
+        public DbSet<AutomationMail> AutomationMails { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Chat> Chats  { get; set; }

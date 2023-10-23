@@ -103,12 +103,15 @@ builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<ChatService>();
 
 builder.Services.AddTransient<SendMailBusinessService>();
+builder.Services.AddTransient<MarketingService>();
 builder.Services.AddOptions();
 var mailBusinessSettings = builder.Configuration.GetSection ("MailBusinessSettings"); 
 builder.Services.Configure<MailBusinessSettings> (mailBusinessSettings);
 
 builder.Services.AddSingleton<IDictionary<int, UserConnection>>(opts => new Dictionary<int, UserConnection>());
 builder.Services.AddSingleton<IDictionary<string, int>>(opts => new Dictionary<string, int>());
+
+builder.Services.AddHostedService<MarketingSenderService>();
 
 var app = builder.Build();
 

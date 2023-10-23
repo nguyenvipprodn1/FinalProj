@@ -2,6 +2,7 @@ using API.Data;
 using API.DTOs;
 using API.Entities;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,12 +10,14 @@ namespace API.Controllers;
 
 public class CouponsController: BaseApiController
 {
+    private readonly UserManager<User> _userManager;
     private readonly StoreContext _context;
     private readonly IMapper _mapper;
-    public CouponsController(StoreContext context, IMapper mapper)
+    public CouponsController(StoreContext context, IMapper mapper, UserManager<User> userManager)
     {
         _mapper = mapper;
         _context = context;
+        _userManager = userManager;
     }
     
     [HttpGet]
@@ -67,4 +70,81 @@ public class CouponsController: BaseApiController
         return Ok();
     }
     
+    [HttpGet("marketing/{id:int}")]
+    public IActionResult GetCouponMarketingById([FromRoute] int id)
+    {
+        var coupon = _context.CouponMarketingInfos.FirstOrDefault(_ => _.CouponId == id);
+        return Ok(coupon);
+    }
+    
+    [HttpPost("marketing")]
+    public async Task<IActionResult> CreateMarketing(UpSertMarketingCouponDtos input)
+    {
+        if (_context.CouponMarketingInfos.Any(_=>_.CouponId == input.CouponId))
+        {
+            return BadRequest("You need Cancel To create new campaign");
+        }
+        var createMarketingCoupon = new CouponMarketingInfo();
+        _mapper.Map(input, createMarketingCoupon);
+        
+        _context.CouponMarketingInfos.Add(createMarketingCoupon);
+        _context.SaveChanges();
+            
+        var userList = _context.Users.ToList();
+            
+        foreach (var user in userList)
+        {
+            var roleTemp = await _userManager.GetRolesAsync(user);
+            user.Role = roleTemp.FirstOrDefault();
+        }
+
+        var memberUsers = userList.Where(_ => _.Role == "Member").ToList();
+
+        var coupon = _context.ProductDiscounts.FirstOrDefault(_ => _.Id == input.CouponId);
+        if (coupon == null)
+            return BadRequest();
+        
+        var mails = new List<AutomationMail>();
+        foreach (var user in memberUsers)
+        {
+            if (user.Email != null)
+            {
+                var marketingMail = await System.IO.File.ReadAllTextAsync("Emails/Marketing/index.html");
+                marketingMail = marketingMail.Replace("[[Name]]", user.UserName);
+                marketingMail = marketingMail.Replace("[[Description]]", input.Description);
+                marketingMail = marketingMail.Replace("[[Coupon]]", coupon.CouponCode);
+                marketingMail = marketingMail.Replace("[[Discount]]", coupon.DiscountValue.ToString());
+                
+                var mail = new AutomationMail()
+                {
+                    Subject = input.Subject,
+                    CouponInfoId = createMarketingCoupon.Id,
+                    Content = marketingMail,
+                    Gmail = user.Email,
+                    ScheduleOn = input.ScheduleOn,
+                    Status = "Pending"
+                };
+                
+                mails.Add(mail);
+            }
+        }
+        
+        _context.AutomationMails.AddRange(mails);
+        _context.SaveChanges();
+
+        return Ok(createMarketingCoupon);
+    }
+
+    [HttpDelete("marketing/{id:int}")]
+    public async Task<IActionResult> CancelMarketing([FromRoute] int id)
+    {
+        var mailAutomation = _context.AutomationMails.Where(_ => _.CouponInfoId == id).ToList();
+        _context.AutomationMails.RemoveRange(mailAutomation);
+
+        var mailInfo = _context.CouponMarketingInfos.Find(id);
+        _context.CouponMarketingInfos.Remove(mailInfo);
+
+        _context.SaveChanges();
+        return Ok();
+    }
 }

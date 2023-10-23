@@ -11,6 +11,7 @@ namespace API.RequestHelpers
             CreateMap<CreateProductDto, Product>();
             CreateMap<UpdateProductDto, Product>();
             CreateMap<CouponDtos, ProductDiscount>().ReverseMap();
+            CreateMap<UpSertMarketingCouponDtos, CouponMarketingInfo>().ReverseMap();
         }
     }
 }

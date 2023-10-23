@@ -144,6 +144,9 @@ const Coupon = {
     createCoupon: (coupon: any) => requests.post('coupons', coupon),
     updateCoupon: (id:number,coupon: any) => requests.put(`coupons/${id}`, coupon),
     deleteCoupon: (id: number) => requests.delete(`coupons/${id}`),
+    getMarketingCouponInfo: (id: number) => requests.get(`coupons/marketing/${id}`),
+    cancelMarketingCoupon: (id: number) => requests.delete(`coupons/marketing/${id}`),
+    createMarketingCoupon: (marketingInfo: any) => requests.post('coupons/marketing', marketingInfo),
 }
 
 

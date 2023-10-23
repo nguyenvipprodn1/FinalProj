@@ -4,10 +4,13 @@ import { LoadingButton } from "@mui/lab";
 import { Box, Typography, Button, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import agent from "../../app/api/agent";
 import CouponForm from "./couponForm";
+import AutoMarketing from "./autoMarketing";
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 export default function Coupon() {
     const [coupons, setCoupons] = useState([]);
     const [editMode, setEditMode] = useState(false);
+    const [marketingMode, setMarketingMode] = useState(false);
     const [selectedCoupon, setSelectedCoupon] = useState(undefined);
     const [loading, setLoading] = useState(false);
     const [target, setTarget] = useState(0);
@@ -27,6 +30,12 @@ export default function Coupon() {
         setEditMode(true);
     }
 
+    function handleSelectCouponToMarketing(product) {
+        setSelectedCoupon(product);
+        setMarketingMode(true);
+    }
+
+
     function handleDeleteCoupon(id) {
         setLoading(true);
         setTarget(id)
@@ -40,7 +49,13 @@ export default function Coupon() {
         setEditMode(false);
     }
 
+    function cancelEditMarketing() {
+        if (selectedCoupon) setSelectedCoupon(undefined);
+        setMarketingMode(false);
+    }
+
     if (editMode) return <CouponForm coupon={selectedCoupon} cancelEdit={cancelEdit} getAll={getAll} />
+    if (marketingMode) return <AutoMarketing coupon={selectedCoupon} cancelEdit={cancelEditMarketing} />
 
     return (
         <>
@@ -86,6 +101,7 @@ export default function Coupon() {
                                 <TableCell align="right">{coupon.maximumDiscountAmount}</TableCell>
                                 <TableCell align="right">{coupon.isActive?"Active":"In Active"}</TableCell>
                                 <TableCell align="right">
+                                    <Button onClick={() => handleSelectCouponToMarketing(coupon)} startIcon={<TrendingUpIcon />} />
                                     <Button onClick={() => handleSelectCoupon(coupon)} startIcon={<Edit />} />
                                     <LoadingButton
                                         loading={loading && target === coupon.id}

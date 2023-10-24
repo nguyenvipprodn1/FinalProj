@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Box, Container, Unstable_Grid2 as Grid } from "@mui/material";
 import { OverviewBudget } from "./overview/overview-budget";
 import { OverviewTotalCustomers } from "./overview/overview-total-customers";
@@ -6,8 +6,15 @@ import { OverviewTasksProgress } from "./overview/overview-tasks-progress";
 import { OverviewTotalProfit } from "./overview/overview-total-profit";
 import { OverviewTraffic } from "./overview/overview-traffic";
 import { OverviewSales } from "./overview/overview-sales";
+import agent from "../../app/api/agent";
 
 const DashBoard = () => {
+  const [data, setData]= useState({});
+  useEffect(() => {
+    agent.Dashboard.get().then((res)=>{
+      setData(res);
+    }).catch((err)=> console.log(err));
+  }, []);
   return (
     <Box
       component="main"
@@ -19,26 +26,26 @@ const DashBoard = () => {
       <Container maxWidth="xl">
         <Grid container spacing={3}>
           <Grid xs={12} sm={6} lg={3}>
-            <OverviewBudget
-              difference={12}
-              positive
-              sx={{ height: "100%" }}
-              value="$24k"
-            />
-          </Grid>
-          <Grid xs={12} sm={6} lg={3}>
             <OverviewTotalCustomers
               difference={16}
               positive={false}
               sx={{ height: "100%" }}
-              value="1.6k"
+              value={data.customer}
             />
           </Grid>
           <Grid xs={12} sm={6} lg={3}>
-            <OverviewTasksProgress sx={{ height: "100%" }} value={75.5} />
+            <OverviewBudget
+                difference={12}
+                positive
+                sx={{ height: "100%" }}
+                value={data.productRemain}
+            />
           </Grid>
           <Grid xs={12} sm={6} lg={3}>
-            <OverviewTotalProfit sx={{ height: "100%" }} value="$15k" />
+            <OverviewTasksProgress sx={{ height: "100%" }} value={data.productSold} />
+          </Grid>
+          <Grid xs={12} sm={6} lg={3}>
+            <OverviewTotalProfit sx={{ height: "100%" }} value={`${data.totalProfit}$`} />
           </Grid>
           <Grid xs={12} lg={8}>
             <OverviewSales

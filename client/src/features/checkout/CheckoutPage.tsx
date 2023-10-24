@@ -104,7 +104,6 @@ export default function CheckoutPage() {
         }
     }
 
-
     const handleNext = async (data: FieldValues) => {
         if (activeStep === steps.length - 1) {
             await submitOrder(data);
@@ -184,6 +183,5 @@ export default function CheckoutPage() {
                 </>
             </Paper>
         </FormProvider>
-
     );
 }

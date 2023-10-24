@@ -8,21 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/API/DTOs/UpSertMarketingCouponDtos.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Emails/Marketing/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Entities/AutomationMail.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Entities/CouponMarketingInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Services/MarketingSenderService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/API/Services/MarketingService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/features/coupon/autoMarketing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Controllers/CouponsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/CouponsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Data/StoreContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/StoreContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/RequestHelpers/MappingProfiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/RequestHelpers/MappingProfiles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/DashboardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/DashboardController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/coupon/coupon.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/coupon/coupon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/checkout/CheckoutPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/checkout/CheckoutPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/dashboard/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-budget.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-budget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-tasks-progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-tasks-progress.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +101,7 @@
       <workItem from="1696564232700" duration="846000" />
       <workItem from="1697094911335" duration="10466000" />
       <workItem from="1697614635990" duration="10254000" />
-      <workItem from="1698053436212" duration="13358000" />
+      <workItem from="1698053436212" duration="18118000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@ import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
 import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
 import CurrencyDollarIcon from '@heroicons/react/24/solid/CurrencyDollarIcon';
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
+import ListBulletIcon from "@heroicons/react/24/solid/ListBulletIcon";
 
 export const OverviewBudget = (props) => {
   const { difference, positive = false, sx, value } = props;
@@ -21,7 +22,7 @@ export const OverviewBudget = (props) => {
               color="text.secondary"
               variant="overline"
             >
-              Budget
+              Product Remain
             </Typography>
             <Typography variant="h4">
               {value}
@@ -35,7 +36,7 @@ export const OverviewBudget = (props) => {
             }}
           >
             <SvgIcon>
-              <CurrencyDollarIcon />
+              <ListBulletIcon />
             </SvgIcon>
           </Avatar>
         </Stack>

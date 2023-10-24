@@ -149,6 +149,10 @@ const Coupon = {
     createMarketingCoupon: (marketingInfo: any) => requests.post('coupons/marketing', marketingInfo),
 }
 
+const Dashboard = {
+    get: () => requests.get('Dashboard'),
+}
+
 
 const agent = {
     Catalog,
@@ -159,7 +163,8 @@ const agent = {
     Payments,
     Admin,
     Chat,
-    Coupon
+    Coupon,
+    Dashboard
 }
 
 export default agent;

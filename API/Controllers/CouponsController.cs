@@ -1,6 +1,7 @@
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -75,6 +76,41 @@ public class CouponsController: BaseApiController
     {
         var coupon = _context.CouponMarketingInfos.FirstOrDefault(_ => _.CouponId == id);
         return Ok(coupon);
+    }
+    
+    [HttpGet("marketing/couponCode/{code}")]
+    public IActionResult GetCouponMarketingByCode([FromRoute] string code)
+    {
+        var coupon = _context.ProductDiscounts.FirstOrDefault(_ => _.CouponCode == code.Trim());
+        return Ok(coupon);
+    }
+    
+    [HttpGet("marketing/applyCoupon/{code}")]
+    public async Task<IActionResult> ApplyCoupon(string code)
+    {
+        var userBasket =  await _context.Baskets
+            .Include(i => i.Items)
+            .ThenInclude(p => p.Product)
+            .FirstOrDefaultAsync(basket => basket.BuyerId == User.Identity.Name);
+       
+        var coupon = _context.ProductDiscounts.FirstOrDefault(_ => _.CouponCode == code.Trim());
+        
+        var basket = userBasket?.MapBasketToDto();
+        var product = basket.Items.FirstOrDefault(_ => _.ProductId == coupon.ProductId);
+        if (product != null && product.Price * product.Quantity > coupon.MinimumOrderValue && coupon.IsActive)
+        {
+            var discountValue = Math.Min(coupon.MaximumDiscountAmount,  Math.Floor((double)product.Price / 100) * product.Quantity * coupon.DiscountValue/100);
+
+            userBasket.RemoveItem(coupon.ProductId, product.Quantity);
+            var productdb = await _context.Products.FindAsync(coupon.ProductId);
+
+            if (productdb == null) return BadRequest(new ProblemDetails { Title = "Product not found" });
+            
+            userBasket.AddItemCoupon(productdb, product.Quantity, coupon.Id, (long)Math.Floor(Math.Floor((double)product.Price / 100) * product.Quantity - discountValue)*100);
+            _context.SaveChanges();
+        }
+        
+        return Ok();
     }
     
     [HttpPost("marketing")]

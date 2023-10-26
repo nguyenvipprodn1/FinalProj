@@ -8,13 +8,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96373729-dba0-4a61-88a5-851c60fd49cc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/app/models/coupon.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ReStore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/Controllers/DashboardController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/DashboardController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/CouponsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/CouponsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Controllers/OrdersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Controllers/OrdersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/DTOs/BasketItemDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/DTOs/BasketItemDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Data/Migrations/StoreContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Entities/Basket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Entities/Basket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Entities/BasketItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Entities/BasketItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Entities/ProductDiscount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Entities/ProductDiscount.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/Extensions/BasketExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/Extensions/BasketExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/api/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/api/agent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/checkout/CheckoutPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/checkout/CheckoutPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/dashboard/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-budget.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-budget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-tasks-progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/dashboard/overview/overview-tasks-progress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/models/basket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/models/basket.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/basket/BasketPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/basket/BasketPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/basket/BasketSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/basket/BasketSummary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/features/basket/basketSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/features/basket/basketSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,39 +41,45 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/API/Entities/CouponMarketingInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/853b030d5b70451e9f5d87dd25e408a81e4800/cc/be52239f/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a5b7361b97024742be89da7232532843ae0c00/a3/00175521/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a5b7361b97024742be89da7232532843ae0c00/f7/57fe089f/IIdentity.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2UW5jt95GNIhTqCwosz4gZmRZV3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.5007278&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "XThreadsFramesViewSplitterKey": "0.31441048",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
-      &quot;/Users/tringuyen/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.2/resharper-host/DecompilerCache",
+      "/Users/tringuyen/Library/Application Support/JetBrains/Rider2023.2/resharper-host/SourcesCache",
+      "/Users/tringuyen/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/API/API.csproj" />
@@ -101,7 +115,8 @@
       <workItem from="1696564232700" duration="846000" />
       <workItem from="1697094911335" duration="10466000" />
       <workItem from="1697614635990" duration="10254000" />
-      <workItem from="1698053436212" duration="18118000" />
+      <workItem from="1698053436212" duration="20166000" />
+      <workItem from="1698311607534" duration="14235000" />
     </task>
     <servers />
   </component>

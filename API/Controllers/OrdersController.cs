@@ -61,6 +61,19 @@ namespace API.Controllers
             foreach (var item in basket.Items)
             {
                 var productItem = await _context.Products.FindAsync(item.ProductId);
+                if (item.CouponId != null)
+                {
+                    var coupon = _context.ProductDiscounts.FirstOrDefault(_ => _.Id == item.CouponId);
+                    if (coupon != null && coupon.IsActive)
+                    {
+                        coupon.DiscountUnit -= 1;
+                        _context.SaveChanges();
+                        
+                        var discountValue = Math.Min(coupon.MaximumDiscountAmount,  Math.Floor((double)productItem.Price / 100) * coupon.DiscountValue/100);
+                        productItem.Price = (long)Math.Floor(Math.Floor((double)productItem.Price / 100) - discountValue)*100;
+                    }
+                   
+                }
                 var itemOrdered = new ProductItemOrdered
                 {
                     ProductId = productItem.Id,

@@ -17,5 +17,5 @@ public class ProductDiscount
     public string CouponCode { get; set; }
     public int  MinimumOrderValue { get; set; }
     public int  MaximumDiscountAmount { get; set; }
-    public bool IsActive => DateCreated <= DateTime.Now && DateTime.Now <= ValidUntil && DiscountUnit > 0;
+    public bool IsActive => DateCreated <= DateTime.Now && DateTime.Now <= ValidUntil && DiscountUnit >= 1;
 }

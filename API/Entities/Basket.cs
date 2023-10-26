@@ -20,6 +20,18 @@ namespace API.Entities
             if (existingItem != null) existingItem.Quantity += quantity;
         }
 
+        public void AddItemCoupon(Product product, int quantity, int couponId, long finalPrice)
+        {
+            if (Items.All(item => item.ProductId != product.Id))
+            {
+                Items.Add(new BasketItem { Product = product, Quantity = quantity, CouponId = couponId, FinalPrice = finalPrice});
+                return;
+            }
+
+            var existingItem = Items.FirstOrDefault(item => item.ProductId == product.Id);
+            if (existingItem != null) existingItem.Quantity += quantity;
+        }
+        
         public void RemoveItem(int productId, int quantity = 1)
         {
             var item = Items.FirstOrDefault(basketItem => basketItem.ProductId == productId);

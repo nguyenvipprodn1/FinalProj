@@ -9,5 +9,7 @@ namespace API.DTOs
         public string Brand { get; set; }
         public string Type { get; set; }
         public int Quantity { get; set; }
+        public int? CouponId { get; set; }
+        public long? FinalPrice { get; set; }
     }
 }

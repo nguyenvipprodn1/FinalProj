@@ -13,6 +13,7 @@ const initialState: BasketState = {
     status: 'idle'
 }
 
+
 export const fetchBasketAsync = createAsyncThunk<Basket>(
     'basket/fetchBasketAsync',
     async (_, thunkAPI) => {
@@ -61,7 +62,11 @@ export const basketSlice = createSlice({
         },
         clearBasket: (state) => {
             state.basket = null;
+        },
+        APPLY_COUPON: (state, action) => {
+            state.basket =  action.payload;
         }
+
     },
     extraReducers: builder => {
         builder.addCase(addBasketItemAsync.pending, (state, action) => {
@@ -94,4 +99,4 @@ export const basketSlice = createSlice({
     }
 })
 
-export const {setBasket, clearBasket} = basketSlice.actions;
+export const {setBasket, clearBasket, APPLY_COUPON} = basketSlice.actions;

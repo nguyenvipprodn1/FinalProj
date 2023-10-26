@@ -14,5 +14,8 @@ namespace API.Entities
 
         public int BasketId { get; set; }
         public Basket Basket { get; set; }
+        
+        public int? CouponId { get; set; }
+        public long? FinalPrice { get; set; }
     }
 }

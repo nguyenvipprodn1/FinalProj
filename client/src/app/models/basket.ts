@@ -6,6 +6,8 @@ export interface BasketItem {
     brand: string;
     type: string;
     quantity: number;
+    couponId: number;
+    finalPrice: number;
 }
 
 export interface Basket {

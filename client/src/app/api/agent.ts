@@ -147,6 +147,8 @@ const Coupon = {
     getMarketingCouponInfo: (id: number) => requests.get(`coupons/marketing/${id}`),
     cancelMarketingCoupon: (id: number) => requests.delete(`coupons/marketing/${id}`),
     createMarketingCoupon: (marketingInfo: any) => requests.post('coupons/marketing', marketingInfo),
+    getCoupon: (coupon: any) => requests.get(`coupons/marketing/couponCode/${coupon}`),
+    applyCoupon: (coupon: any) => requests.get(`coupons/marketing/applyCoupon/${coupon}`),
 }
 
 const Dashboard = {
